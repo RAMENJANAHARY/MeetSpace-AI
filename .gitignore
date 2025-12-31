@@ -1,0 +1,51 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+gen/
+
+# Flutter/Dart
+.dart_tool/
+.packages
+.pub-cache/
+/build/
+**/ios/Pods/*
+**/ios/.symlinks/*
+**/ios/Flutter/App.framework
+**/ios/Flutter/engine
+**/ios/Flutter/flutter_assets
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/app.flx
+**/ios/Runner/GeneratedPluginRegistrant.*
+/ios/Flutter/Debug.xcconfig
+/ios/Flutter/Release.xcconfig
+derived_data/
+# Android
+**/android/captures/
+**/android/.gradle
+**/android/local.properties
+**/android/key.properties
+# Xcode
+.xcworkspace/
+build/
+DerivedData/
+*.hmap
+*.xccheckout
+# Visual Studio Code
+.vscode/
+# Don't check in API keys
+key.json
+lib/key.dart
