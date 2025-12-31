@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
             title: 'The Proud Baobab Trees',
             subtitle: 'Why they grow upside down',
             image:
-                'https://upload.wikimedia.org/wikipedia/commons/6/6e/Avenue_des_Baobabs%2C_Morondava%2C_Madagascar.jpg',
+                'https://as2.ftcdn.net/v2/jpg/01/63/23/53/1000_F_163235373_Xzz4MLDDFGhBbM7tqsMYSNB0aueQYxFv.jpg',
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (_) => const BaobabStory()),
@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
             title: 'Babakoto – The Indri Legend',
             subtitle: 'Father of humanity',
             image:
-                'https://upload.wikimedia.org/wikipedia/commons/5/5f/Indri_indri_%28Indri%29.jpg',
+                'https://media.istockphoto.com/id/1126116540/photo/beautiful-image-of-the-indri-lemur-sitting-on-tree-in-madagascar.jpg?s=612x612&w=0&k=20&c=ZGFxiowv-ahK86qbLDEwDpfBEZfDPMVVqC5z1cndBq0=',
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (_) => const IndriStory()),
@@ -68,7 +68,7 @@ class HomeScreen extends StatelessWidget {
             title: 'The Clever Chameleon',
             subtitle: 'Master of colors and patience',
             image:
-                'https://upload.wikimedia.org/wikipedia/commons/9/9f/Panther_chameleon_%28Furcifer_pardalis%29_male.jpg',
+                'https://www.madamagazine.com/wp-content/uploads/Furcifer-pardalis-Ambilobe-male-2019-2.jpg',
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (_) => const ChameleonStory()),
@@ -78,10 +78,29 @@ class HomeScreen extends StatelessWidget {
             title: 'Malagasy Village Life',
             subtitle: 'Harmony with ancestors and nature',
             image:
-                'https://upload.wikimedia.org/wikipedia/commons/7/7e/Malagasy_village.jpg',
+                'https://media.istockphoto.com/id/506751044/photo/malagasy-traditional-village.jpg?s=612x612&w=0&k=20&c=R3hYqC7g6zrjsOlj2nyCJwZPfPGWTYnrqUO83hfDMdQ=',
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (_) => const VillageStory()),
+            ),
+          ),
+          StoryCard(
+            title: 'Ring-Tailed Lemurs',
+            subtitle: 'The social queens of the south',
+            image:
+                'https://media.gettyimages.com/id/482738815/photo/ring-tailed-lemurs-madagascar.jpg?s=612x612&w=gi&k=20&c=7IS4gOwI3HSvME4SnvZHlwoL4Yut-giLtaQUFxu5POM=',
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const RingTailedLemurStory()),
+            ),
+          ),
+          StoryCard(
+            title: 'Tsingy – The Stone Forest',
+            subtitle: 'Razor-sharp labyrinth of limestone',
+            image: 'https://static.toiimg.com/photo/107857557.cms',
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const TsingyStory()),
             ),
           ),
         ],
@@ -107,24 +126,32 @@ class StoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 8,
-      margin: const EdgeInsets.symmetric(vertical: 12),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      elevation: 10,
+      margin: const EdgeInsets.symmetric(vertical: 14),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
       child: InkWell(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(22),
         onTap: onTap,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
               borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(20),
+                top: Radius.circular(22),
               ),
               child: Image.network(
                 image,
-                height: 220,
+                height: 240,
                 width: double.infinity,
                 fit: BoxFit.cover,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Container(
+                    height: 240,
+                    color: Colors.grey[300],
+                    child: const Center(child: CircularProgressIndicator()),
+                  );
+                },
               ),
             ),
             Padding(
@@ -135,14 +162,17 @@ class StoryCard extends StatelessWidget {
                   Text(
                     title,
                     style: const TextStyle(
-                      fontSize: 24,
+                      fontSize: 26,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 10),
                   Text(
                     subtitle,
-                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                    style: const TextStyle(
+                      fontSize: 17,
+                      color: Colors.grey[700],
+                    ),
                   ),
                 ],
               ),
@@ -154,7 +184,7 @@ class StoryCard extends StatelessWidget {
   }
 }
 
-// Individual Story Screens
+// Existing Story Screens (unchanged)
 class BaobabStory extends StatelessWidget {
   const BaobabStory({super.key});
   @override
@@ -224,6 +254,45 @@ class VillageStory extends StatelessWidget {
           'Life revolves around family, ancestors, and nature. Rice fields terrace the hills, and sacred forests protect spirits.\n\n'
           'During famadihana ceremonies, families dance with ancestors\' bones to honor them.\n\n'
           'Stories are shared under baobab trees at night — keeping traditions alive for generations.',
+          style: TextStyle(fontSize: 18, height: 1.8),
+        ),
+      ),
+    );
+  }
+}
+
+// New Story Screens
+class RingTailedLemurStory extends StatelessWidget {
+  const RingTailedLemurStory({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Ring-Tailed Lemurs')),
+      body: const SingleChildScrollView(
+        padding: EdgeInsets.all(20),
+        child: Text(
+          'The iconic ring-tailed lemurs live in troops led by females. They spend more time on the ground than most lemurs and love sunbathing with arms outstretched.\n\n'
+          'In Malagasy culture, they are playful spirits of the dry southern forests. Their black-and-white tails are used for "stink fights" to establish dominance!\n\n'
+          'Watching a group basking under the morning sun is pure Madagascar magic.',
+          style: TextStyle(fontSize: 18, height: 1.8),
+        ),
+      ),
+    );
+  }
+}
+
+class TsingyStory extends StatelessWidget {
+  const TsingyStory({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Tsingy – The Stone Forest')),
+      body: const SingleChildScrollView(
+        padding: EdgeInsets.all(20),
+        child: Text(
+          'The Tsingy de Bemaraha is a UNESCO World Heritage site — a vast labyrinth of razor-sharp limestone pinnacles formed over millions of years.\n\n'
+          'Meaning "where one cannot walk barefoot," these needle-like rocks create hidden forests, caves, and canyons teeming with unique wildlife.\n\n'
+          'Adventurers cross suspended bridges and climb through this otherworldly landscape — one of Earth\'s most extraordinary natural wonders.',
           style: TextStyle(fontSize: 18, height: 1.8),
         ),
       ),
