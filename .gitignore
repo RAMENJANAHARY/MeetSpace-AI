@@ -1,51 +1,60 @@
 # Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
 .DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
+.idea
+.vscode
 
-# IntelliJ
-.idea/
-*.iml
-*.ipr
-*.iws
-out/
-gen/
-
-# Flutter/Dart
+# Flutter
 .dart_tool/
-.packages
+.flutter-plugins
+.flutter-plugins-dependencies
 .pub-cache/
+.pub/
 /build/
-**/ios/Pods/*
-**/ios/.symlinks/*
-**/ios/Flutter/App.framework
-**/ios/Flutter/engine
-**/ios/Flutter/flutter_assets
-**/ios/Flutter/Generated.xcconfig
-**/ios/Flutter/app.flx
-**/ios/Runner/GeneratedPluginRegistrant.*
-/ios/Flutter/Debug.xcconfig
-/ios/Flutter/Release.xcconfig
-derived_data/
+
 # Android
-**/android/captures/
-**/android/.gradle
-**/android/local.properties
-**/android/key.properties
-# Xcode
-.xcworkspace/
-build/
-DerivedData/
-*.hmap
-*.xccheckout
-# Visual Studio Code
-.vscode/
-# Don't check in API keys
-key.json
-lib/key.dart
+/android/app/build/
+/android/.gradle
+/android/gradlew
+/android/gradlew.bat
+/android/local.properties
+
+# iOS
+/ios/Pods/
+/ios/Flutter/App.framework
+/ios/Flutter/engine.xcconfig
+/ios/.symlinks/
+/ios/Runner/GeneratedPluginRegistrant.h
+/ios/Runner/GeneratedPluginRegistrant.m
+/ios/Runner.xcworkspace
+/ios/Runner.xcodeproj/project.xcworkspace/
+/ios/Runner.xcodeproj/xcuserdata/
+
+# Web
+/web/build/
+
+# Windows
+/windows/flutter/ephemeral/
+/windows/flutter/generated_plugin_registrant.cc
+/windows/flutter/generated_plugins.cmake
+/windows/runner/Debug/
+/windows/runner/Release/
+/windows/runner/Profile/
+/windows/runner/win32_headers/
+
+# Linux
+/linux/flutter/ephemeral/
+/linux/flutter/generated_plugin_registrant.cc
+/linux/flutter/generated_plugins.cmake
+/linux/my_application.so
+
+# macOS
+/macos/Flutter/ephemeral
+/macos/Flutter/GeneratedPluginRegistrant.swift
+/macos/Pods/
+/macos/Runner.xcworkspace
+/macos/.symlinks/
+/macos/Runner.xcodeproj/project.xcworkspace/
+/macos/Runner.xcodeproj/xcuserdata/
+
+# Build artifacts
+app-release.apk
